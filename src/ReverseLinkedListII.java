@@ -36,7 +36,6 @@ public class ReverseLinkedListII {
         }
 
         //Flip sublist so as end is at start and start is at end
-        if (nodeBeforeSublist == null)
         nodeBeforeSublist.next = sublistEnd;
         sublistStart.next = nodeAfterSublist;
 
