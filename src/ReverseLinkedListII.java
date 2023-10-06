@@ -6,10 +6,8 @@ public class ReverseLinkedListII {
         }
         //For multiple node lists
         ListNode output = head;
-        int count = 2;
-        ListNode prev = head;
-        head = head.next;
-        ListNode nodeBeforeSublist = null, sublistStart = null, sublistEnd = null, nodeAfterSublist = null;
+        int count = 1;
+        ListNode prev = null, nodeBeforeSublist = null, sublistStart = null, sublistEnd = null, nodeAfterSublist = null;
         //Reverse sublist
         while (head != null) {
             if (count >= left && count <= right) {
@@ -36,16 +34,26 @@ public class ReverseLinkedListII {
         }
 
         //Flip sublist so as end is at start and start is at end
-        nodeBeforeSublist.next = sublistEnd;
-        sublistStart.next = nodeAfterSublist;
+        if (nodeBeforeSublist == null && nodeAfterSublist == null) {
+            output = sublistEnd;
+        } else if (nodeBeforeSublist == null) {
+            sublistStart.next = nodeAfterSublist;
+            output = sublistEnd;
+        } else if (nodeAfterSublist == null) {
+            nodeBeforeSublist.next = sublistEnd;
+            sublistStart.next = null;
+        } else {
+            nodeBeforeSublist.next = sublistEnd;
+            sublistStart.next = nodeAfterSublist;
+        }
 
         return output;
     }
 
     public static void main(String[] args) {
         ReverseLinkedListII solution = new ReverseLinkedListII();
-//        int[] input = {1, 2, 3, 4, 5};
-        int[] input = {5, 6, 7};
+        int[] input = {1, 2, 3, 4, 5};
+//        int[] input = {5, 6, 7};
         ListNode head = new ListNode(input[0]);
         ListNode listPointer = head;
         for (int i = 1; i < input.length; i++) {
@@ -53,8 +61,8 @@ public class ReverseLinkedListII {
             listPointer = listPointer.next;
         }
 
-        int left = 1;
-        int right = 3;
+        int left = 2;
+        int right = 4;
         ListNode output = solution.reverseBetween(head, left, right);
 
         while (output != null) {
