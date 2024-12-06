@@ -27,9 +27,9 @@ public class MinDepthOfBinaryTree {
         BinaryTreeConstructor btc = new BinaryTreeConstructor();
         Integer[] arr = {3, 9, 20, null, null, 15, 7};
 //        Integer[] arr = {2, null, 3, null, 4, null, 5, null, 6};
-        TreeNode root = btc.constructBinaryTree(arr);
-        MinDepthOfBinaryTree sol = new MinDepthOfBinaryTree();
-        System.out.println(sol.minDepth(root));
+//        TreeNode root = btc.constructBinaryTree(arr);
+//        MinDepthOfBinaryTree sol = new MinDepthOfBinaryTree();
+//        System.out.println(sol.minDepth(root));
 //        BinaryTreeConstructor.printLevelOrder(root);
 //        if (root.left.right == null) {
 //            System.out.println("null");
