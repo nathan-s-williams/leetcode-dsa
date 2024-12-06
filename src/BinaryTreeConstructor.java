@@ -4,7 +4,7 @@ import java.util.Queue;
 public class BinaryTreeConstructor {
 
     // Function to construct binary tree from array
-    public TreeNode constructBinaryTree(Integer[] array) {
+    public TreeNode constructBinaryTree(String[] array) {
         if (array == null || array.length == 0) {
             return null;
         }
