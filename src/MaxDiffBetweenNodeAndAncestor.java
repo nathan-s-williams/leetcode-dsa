@@ -17,7 +17,6 @@ public class MaxDiffBetweenNodeAndAncestor {
         int newMin = Integer.min(root.val, min);
         helper(root.left, newMax, newMin);
         helper(root.right, newMax, newMin);
-        return;
     }
 
     public static void main(String[] args) {
